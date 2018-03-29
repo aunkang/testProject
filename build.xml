@@ -1,0 +1,36 @@
+﻿<?xml version = "1.0"?>
+<project name = "firstProject" basedir = "." default = "deploy">
+   <!-- <property name = "src.dir" value = "src"/>
+   <property name = "build.dir" value = "target/ant"/>
+   <property name = "name" value = "fax"/>
+
+   <path id = "master-classpath">
+      <fileset dir = "${src.dir}">
+         <include name = "*.jar"/>
+      </fileset>
+
+      <pathelement path = "${build.dir}"/>
+   </path> -->
+   <property name = "version" value = "1.22"/>
+
+   <target name = "release" description= "release new version of project" >
+     <replace
+       file="src/main/resources/application.properties"
+       token="fristProject.version=[VERSION]"
+       value='fristProject.version=${version}'/>
+   </target>
+
+   <target name = "deploy" description = "Move the jar packaging to deployment floder" >
+     <copy todir="deployment" overwrite="true">
+       <fileset dir="target">
+           <include name="*.jar" />
+       </fileset>
+     </copy>
+   </target>
+
+   <target>
+     <copy todir="deployment/project" >
+        <fileset dir="${src.dir}" includes="**"/>
+    </copy>
+   </target>
+</project>
