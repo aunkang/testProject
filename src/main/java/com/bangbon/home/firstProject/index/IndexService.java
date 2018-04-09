@@ -7,11 +7,15 @@ import org.springframework.stereotype.Service;
 
 import com.bangbon.home.firstProject.model.Item;
 
-@Service
+
 public class IndexService {
 	
 	@Autowired
 	IndexRepository indexRepository;
+	
+	IndexService() {
+		System.out.println(">>>> indexService");
+	}
 	
 	public List<Item> listItem() {
 		return this.indexRepository.listItem();

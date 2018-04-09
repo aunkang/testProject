@@ -1,5 +1,7 @@
 package com.bangbon.home.firstProject.index;
 
+import org.springframework.stereotype.Component;
+
 public class Index {
 	private String user;
 	private String password;
@@ -32,6 +34,5 @@ public class Index {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
 	
 }

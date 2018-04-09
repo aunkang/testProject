@@ -5,17 +5,28 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 public class IndexRepositoryTest {
+	
+	IndexRepository indexRepo = new IndexRepository();
 
 	@Test
-	public void testListItem() {
-		IndexRepository indexRepo = new IndexRepository(); 
-		String expectedValue = "potatobrown5";
-		String actuallyValue = indexRepo.listItem().get(0).getItemName() + 
-				indexRepo.listItem().get(0).getItemColor() +
-				indexRepo.listItem().get(0).getItemWeight();
+	public void itemNameShouldBe_potato() {	
+		String actuallyValue = this.indexRepo.listItem().get(0).getItemName();
 		
-		assertEquals(expectedValue, actuallyValue);
-
+		assertEquals("potato", actuallyValue);
+	}
+	
+	@Test
+	public void itemColorShouldBe_brown() {
+		String actuallyValue = this.indexRepo.listItem().get(0).getItemColor();
+		
+		assertEquals("brown", actuallyValue);
+	}
+	
+	@Test
+	public void itemWeightShouldBe_5() {
+		String actuallyValue = String.valueOf(this.indexRepo.listItem().get(0).getItemWeight());
+		
+		assertEquals("5", actuallyValue);
 	}
 
 }

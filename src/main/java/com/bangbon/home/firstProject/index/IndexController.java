@@ -21,8 +21,8 @@ import com.bangbon.home.firstProject.model.Item;
 @RestController
 public class IndexController {
 	
-	@Autowired
-	IndexService indexService;
+//	@Autowired
+//	IndexService indexService;
 	
     @GetMapping("/index")
     private Index index(@RequestParam(name="name", required=false, defaultValue="World") 
@@ -32,8 +32,9 @@ public class IndexController {
     }
     
     @GetMapping("/index/listItem")
-    private List<Item> listItem() {
-    	return this.indexService.listItem();
+    private void listItem() {
+//    	IndexService indexService = new IndexService();
+//    	return indexService.listItem();
     }
 
 }
